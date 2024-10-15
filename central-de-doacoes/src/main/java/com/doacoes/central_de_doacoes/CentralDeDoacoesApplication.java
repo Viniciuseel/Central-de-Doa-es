@@ -9,5 +9,5 @@ public class CentralDeDoacoesApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CentralDeDoacoesApplication.class, args);
 	}
-
+	System.out.println("Ola mundo.")
 }
