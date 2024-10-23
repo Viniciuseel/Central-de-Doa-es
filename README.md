@@ -36,14 +36,8 @@ O objetivo deste projeto é criar uma plataforma que centraliza ONGs e institui�
    ```
     - **Descrição**: Define o Notepad++ como editor de texto padrão do Git. As opções `-multiInst`, `-notabbar`, `-nosession` e `-noPlugin` garantem que o Notepad++ seja aberto em uma nova instância, sem abas e sem carregar sessões ou plugins, otimizando o fluxo de trabalho.
 
-3. **Aplicar alterações ao repositório**
 
-   ```bash
-   git add --update --renormalize
-   ```
-    - **Descrição**: Este comando aplica as configurações de normalização aos arquivos já versionados no Git, garantindo que as mudanças de final de linha sejam corretamente aplicadas.
-
-4. **Configurar as informações do usuário**
+3. **Configurar as informações do usuário**
 
    ```bash
    git config --global user.name="Vinicius Arruda Ferreira"
