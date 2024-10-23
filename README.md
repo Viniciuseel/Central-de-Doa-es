@@ -40,11 +40,11 @@ O objetivo deste projeto é criar uma plataforma que centraliza ONGs e institui�
 3. **Configurar as informações do usuário**
 
    ```bash
-   git config --global user.name="Vinicius Arruda Ferreira"
+   git config --global user.name "Seu nome"
    ```
     - **Descrição**: Define o nome do usuário que será associado a seus commits.
 
    ```bash
-   git config --global user.email=vinicius.arruda15eel@gmail.com
+   git config --global user.email "seu email"
    ```
     - **Descrição**: Define o endereço de email do usuário para associar aos seus commits.
