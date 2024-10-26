@@ -32,7 +32,7 @@ O objetivo deste projeto é criar uma plataforma que centraliza ONGs e institui�
 2. **Configurar o editor padrão do Git**
 
    ```bash
-   git config core.editor='C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin
+   git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
    ```
     - **Descrição**: Define o Notepad++ como editor de texto padrão do Git. As opções `-multiInst`, `-notabbar`, `-nosession` e `-noPlugin` garantem que o Notepad++ seja aberto em uma nova instância, sem abas e sem carregar sessões ou plugins, otimizando o fluxo de trabalho.
 
