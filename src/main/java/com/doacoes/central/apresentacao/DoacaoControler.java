@@ -1,6 +1,6 @@
 package com.doacoes.central.apresentacao;
 
-import com.doacoes.central.negocio.entity.Doacao;
+import com.doacoes.central.negocio.entity.Doacao.Doacao;
 import com.doacoes.central.negocio.service.DoacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

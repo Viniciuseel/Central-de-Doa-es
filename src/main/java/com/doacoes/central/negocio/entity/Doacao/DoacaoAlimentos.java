@@ -1,9 +1,14 @@
-package com.doacoes.central.negocio.entity;
+package com.doacoes.central.negocio.entity.Doacao;
 
 import com.doacoes.central.negocio.enums.TipoDoacao;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 
-import javax.persistence.Entity;
-    public class DoacaoAlimentos extends Doacao {
+
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+public class DoacaoAlimentos extends Doacao {
         private String tipoAlimentos;
 
         public DoacaoAlimentos() {

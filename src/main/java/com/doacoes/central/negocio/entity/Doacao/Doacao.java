@@ -1,11 +1,12 @@
-package com.doacoes.central.negocio.entity;
+package com.doacoes.central.negocio.entity.Doacao;
 
 import com.doacoes.central.negocio.enums.TipoDoacao;
+import jakarta.persistence.*;
 
-import javax.persistence.*;
+import java.util.Objects;
 
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+
+@MappedSuperclass
 public abstract class Doacao {
 
     @Id
@@ -54,6 +55,19 @@ public abstract class Doacao {
 
     public void setTipo(TipoDoacao tipo) {
         this.tipo = tipo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Doacao doacao = (Doacao) o;
+        return Double.compare(valor, doacao.valor) == 0 && Objects.equals(id, doacao.id) && Objects.equals(descricao, doacao.descricao) && tipo == doacao.tipo;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, valor, descricao, tipo);
     }
 }
 

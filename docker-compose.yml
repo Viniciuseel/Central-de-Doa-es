@@ -1,23 +1,18 @@
-version: '3.8'
-
 services:
   postgres:
-    image: postgres:14  # Use a versão desejada do PostgreSQL
+    image: postgres:14
     container_name: central_doacoes
     environment:
-      POSTGRES_DB: central_doacoes  # Nome do banco de dados a ser criado
-      POSTGRES_USER: usuario      # Nome do usuário do banco de dados
-      POSTGRES_PASSWORD: senha    # Senha para o usuário
+      POSTGRES_DB: central_doacoes
+      POSTGRES_USER: usuario
+      POSTGRES_PASSWORD: senha
     ports:
-      - "5433:5432"  # Expõe a porta 5432 do container para acesso externo
-  # volumes:
-  #   - pg_data:/var/lib/postgresql/data  # Volume para persistência dos dados
+      - "5433:5432"
     networks:
-      - meu_network  # Nome da rede Docker para comunicação com outros serviços
+      - meu_network
 
 networks:
-  meu_network:  # Define a rede para comunicação entre serviços
+  meu_network:
     driver: bridge
 
-#volumes:
-# pg_data:  # Define o volume para persistência
+

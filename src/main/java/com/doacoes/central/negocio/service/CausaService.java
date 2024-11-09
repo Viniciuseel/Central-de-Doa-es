@@ -1,6 +1,6 @@
 package com.doacoes.central.negocio.service;
 
-import com.doacoes.central.negocio.entity.Causa;
+import com.doacoes.central.negocio.entity.Causa.Causa;
 import com.doacoes.central.persistencia.repositorio.CausaRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

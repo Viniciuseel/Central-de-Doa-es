@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fazer Doação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            width: 400px;
+            margin: auto;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Faça uma Doação</h2>
+    <form id="doacaoForm">
+        <label for="nomeInstituicao">Nome da Instituição</label>
+        <input type="text" id="nomeInstituicao" required>
+
+        <label for="descricaoCausa">Descrição da Causa</label>
+        <input type="text" id="descricaoCausa" required>
+
+        <label for="valorDoacao">Valor da Doação (R$)</label>
+        <input type="number" id="valorDoacao" required>
+
+        <button type="submit">Fazer Doação</button>
+    </form>
+</div>
+
+<script>
+    // Função para enviar a doação via API
+    document.getElementById('doacaoForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const nomeInstituicao = document.getElementById('nomeInstituicao').value;
+        const descricaoCausa = document.getElementById('descricaoCausa').value;
+        const valorDoacao = document.getElementById('valorDoacao').value;
+
+        // Criação do objeto da doação
+        const doacao = {
+            nomeInstituicao: nomeInstituicao,
+            descricaoCausa: descricaoCausa,
+            valor: parseFloat(valorDoacao) // Convertendo para float
+        };
+
+        // Fazendo o POST para a API de doações
+        fetch('http://localhost:8080/api/doacoes', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(doacao),
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert('Doação realizada com sucesso!');
+            document.getElementById('doacaoForm').reset();
+        })
+        .catch(error => {
+            console.error('Erro ao realizar a doação:', error);
+            alert('Ocorreu um erro. Tente novamente.');
+        });
+    });
+</script>
+
+</body>
+</html>

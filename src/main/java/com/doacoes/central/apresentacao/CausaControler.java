@@ -1,6 +1,6 @@
 package com.doacoes.central.apresentacao;
 
-import com.doacoes.central.negocio.entity.Causa;
+import com.doacoes.central.negocio.entity.Causa.Causa;
 import com.doacoes.central.negocio.service.CausaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
