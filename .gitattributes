@@ -9,3 +9,7 @@
 
 # Forcar batch scripts(linux) sempre usar LF final de linhas
 *.sh text eol=lf
+
+/gradlew text eol=lf
+*.bat text eol=crlf
+*.jar binary
