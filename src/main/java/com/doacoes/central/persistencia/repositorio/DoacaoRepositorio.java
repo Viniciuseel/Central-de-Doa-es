@@ -1,8 +1,6 @@
 package com.doacoes.central.persistencia.repositorio;
 
-import com.doacoes.central.negocio.entity.Doacao.Doacao;
-import com.doacoes.central.negocio.enums.TipoDoacao;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.doacoes.central.negocio.entity.Doacao;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

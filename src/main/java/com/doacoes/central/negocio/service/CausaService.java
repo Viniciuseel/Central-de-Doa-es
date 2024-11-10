@@ -1,44 +1,20 @@
 package com.doacoes.central.negocio.service;
 
-import com.doacoes.central.negocio.entity.Causa.Causa;
-import com.doacoes.central.persistencia.repositorio.CausaRepositorio;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.doacoes.central.negocio.entity.Causa;
+import com.doacoes.central.negocio.entity.Doacao;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
-public class CausaService {
+public interface CausaService {
+    Causa criarCausa(Causa causa);
 
-    private final CausaRepositorio causaRepositorio;  // Adapte conforme sua estrutura de repositório
 
-    @Autowired
-    public CausaService(CausaRepositorio causaRepositorio) {
-        this.causaRepositorio = causaRepositorio;
-    }
+    Causa atualizarCausa(Long id, Causa causa);
 
-    public Causa criarCausa(Causa causa) {
-        return causaRepositorio.save(causa);
-    }
+    void excluirCausa(Long id);
 
-    public List<Causa> listarCausas() {
-        return causaRepositorio.findAll();
-    }
+    Optional<Causa> buscarPorId(Long id);
 
-    public Optional<Causa> buscarCausaPorId(Long id) {
-        return causaRepositorio.findById(id);
-    }
-
-    public Causa atualizarCausa(Long id, Causa causaAtualizada) {
-        if (causaRepositorio.existsById(id)) {
-            causaAtualizada.setId(id);
-            return causaRepositorio.save(causaAtualizada);
-        }
-        return null;
-    }
-
-    public void excluirCausa(Long id) {
-        causaRepositorio.deleteById(id);
-    }
+    List<Causa> listarCausas();
 }

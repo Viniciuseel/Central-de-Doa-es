@@ -1,7 +1,7 @@
 package com.doacoes.central.apresentacao;
 
-import com.doacoes.central.negocio.entity.Doacao.Doacao;
-import com.doacoes.central.negocio.service.DoacaoService;
+import com.doacoes.central.negocio.entity.Doacao;
+import com.doacoes.central.negocio.service.DoacaoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,11 +12,11 @@ import java.util.Optional;
 @RequestMapping("/api/doacoes")
 public class DoacaoControler {
 
-    private final DoacaoService doacaoService;
+    private final DoacaoServiceImpl doacaoService;
 
     @Autowired
-    public DoacaoControler(DoacaoService doacaoService) {
-        this.doacaoService = doacaoService;
+    public DoacaoControler(DoacaoServiceImpl doacaoServiceImpl) {
+        this.doacaoService = doacaoServiceImpl;
     }
 
     @PostMapping

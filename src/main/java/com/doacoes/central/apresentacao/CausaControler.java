@@ -1,7 +1,9 @@
 package com.doacoes.central.apresentacao;
 
-import com.doacoes.central.negocio.entity.Causa.Causa;
+import com.doacoes.central.negocio.entity.Causa;
 import com.doacoes.central.negocio.service.CausaService;
+import com.doacoes.central.negocio.service.CausaServiceImpl;
+import jakarta.persistence.Id;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,26 +14,21 @@ import java.util.Optional;
 @RequestMapping("/api/causas")
 public class CausaControler {
 
-    private final CausaService causaService;
-
-    @Autowired
-    public CausaControler(CausaService causaService) {
-        this.causaService = causaService;
-    }
+    @Autowired private CausaService causaService;
 
     @PostMapping
     public Causa criarCausa(@RequestBody Causa causa) {
         return causaService.criarCausa(causa);
     }
 
-    @GetMapping
+    @GetMapping()
     public List<Causa> listarCausas() {
         return causaService.listarCausas();
     }
 
     @GetMapping("/{id}")
-    public Optional<Causa> buscarCausaPorId(@PathVariable Long id) {
-        return causaService.buscarCausaPorId(id);
+    public Optional<Causa> buscarCausaPorId(@PathVariable Long id ) {
+        return causaService.buscarPorId(id);
     }
 
     @PutMapping("/{id}")
