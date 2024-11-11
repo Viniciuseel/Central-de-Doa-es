@@ -1,5 +1,6 @@
 package com.doacoes.central.negocio.service;
 
+import com.doacoes.central.negocio.enums.TiposDoacao;
 import com.doacoes.central.persistencia.repositorio.DoacaoRepositorio;
 import com.doacoes.central.negocio.entity.Doacao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,10 +31,12 @@ public class DoacaoServiceImpl implements DoacaoService{
         return doacaoRepositorio.findById(id);
     }
 
-    public Doacao atualizarDoacao(Long id, Doacao doacaoAtualizada) {
+    public Doacao atualizarDoacao(Long id, TiposDoacao tipo, Doacao doacaoAtualizada) {
         return doacaoRepositorio.findById(id).map(doacao -> {
             doacao.setDescricao(doacaoAtualizada.getDescricao());
             doacao.setValor(doacaoAtualizada.getValor());
+            doacao.setDoador(doacaoAtualizada.getDoador());
+            doacao.setTipo(doacaoAtualizada.getTipo());
             return doacaoRepositorio.save(doacao);
         }).orElseThrow(() -> new RuntimeException("Doação não encontrada"));
     }

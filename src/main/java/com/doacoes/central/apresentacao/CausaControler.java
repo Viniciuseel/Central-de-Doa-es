@@ -1,6 +1,7 @@
 package com.doacoes.central.apresentacao;
 
 import com.doacoes.central.negocio.entity.Causa;
+import com.doacoes.central.negocio.enums.TipoCausa;
 import com.doacoes.central.negocio.service.CausaService;
 import com.doacoes.central.negocio.service.CausaServiceImpl;
 import jakarta.persistence.Id;
@@ -31,9 +32,9 @@ public class CausaControler {
         return causaService.buscarPorId(id);
     }
 
-    @PutMapping("/{id}")
-    public Causa atualizarCausa(@PathVariable Long id, @RequestBody Causa causaAtualizada) {
-        return causaService.atualizarCausa(id, causaAtualizada);
+    @PutMapping("/{id}/{tipo}")
+    public Causa atualizarCausa(@PathVariable Long id, @PathVariable TipoCausa tipo, @RequestBody Causa causaAtualizada) {
+        return causaService.atualizarCausa(id, tipo, causaAtualizada);
     }
 
     @DeleteMapping("/{id}")

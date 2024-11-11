@@ -1,6 +1,7 @@
 package com.doacoes.central.apresentacao;
 
 import com.doacoes.central.negocio.entity.Doacao;
+import com.doacoes.central.negocio.enums.TiposDoacao;
 import com.doacoes.central.negocio.service.DoacaoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -34,9 +35,9 @@ public class DoacaoControler {
         return doacaoService.buscarPorId(id);
     }
 
-    @PutMapping("/{id}")
-    public Doacao atualizarDoacao(@PathVariable Long id, @RequestBody Doacao doacaoAtualizada) {
-        return doacaoService.atualizarDoacao(id, doacaoAtualizada);
+    @PutMapping("/{id}/{tipo}")
+    public Doacao atualizarDoacao(@PathVariable Long id, @PathVariable TiposDoacao tipo, @RequestBody Doacao doacaoAtualizada) {
+        return doacaoService.atualizarDoacao(id,tipo, doacaoAtualizada);
     }
 
     @DeleteMapping("/{id}")

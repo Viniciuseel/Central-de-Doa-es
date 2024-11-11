@@ -1,6 +1,7 @@
 package com.doacoes.central.negocio.service;
 
 import com.doacoes.central.negocio.entity.Causa;
+import com.doacoes.central.negocio.enums.TipoCausa;
 import com.doacoes.central.persistencia.repositorio.CausaRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,9 +31,11 @@ public class CausaServiceImpl implements CausaService {
         return causaRepositorio.findById(id);
     }
 
-    public Causa atualizarCausa(Long id, Causa causaAtualizada) {
+
+    public Causa atualizarCausa(Long id, TipoCausa tipo, Causa causaAtualizada) {
         if (causaRepositorio.existsById(id)) {
             causaAtualizada.setId(id);
+            causaAtualizada.setTipo(tipo);
             return causaRepositorio.save(causaAtualizada);
         }
         return null;

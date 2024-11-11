@@ -1,5 +1,6 @@
 package com.doacoes.central.negocio.entity;
 
+import com.doacoes.central.negocio.enums.TiposDoacao;
 import jakarta.persistence.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -8,24 +9,21 @@ import java.util.Objects;
 
 
 @Entity
-public class Doacao {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Doacao extends Transacao {
+
 
     private String doador;
 
     private double valor;
+    @Enumerated(EnumType.STRING)
+    private TiposDoacao tipo;
 
-    private String descricao;
-
-
-    public Long getId() {
-        return id;
+    public TiposDoacao getTipo() {
+        return tipo;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setTipo(TiposDoacao tipo) {
+        this.tipo = tipo;
     }
 
     public String getDoador() {
@@ -44,34 +42,29 @@ public class Doacao {
         this.valor = valor;
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Doacao that = (Doacao) o;
-        return Double.compare(valor, that.valor) == 0 && Objects.equals(id, that.id) && Objects.equals(descricao, that.descricao);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, doador, valor, descricao);
-    }
-
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Doacao that = (Doacao) o;
+//        return Double.compare(valor, that.valor) == 0 && Objects.equals(id, that.id) && Objects.equals(descricao, that.descricao);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id, doador, valor, descricao);
+//    }
+//
     @Override
     public String toString() {
         return "Doacao{" +
-                "id=" + id +
+                "id=" + getId() +
                 ", doador='" + doador + '\'' +
                 ", valor=" + valor +
-                ", descricao='" + descricao + '\'' +
+                ", descricao='" + getDescricao() + '\'' +
+                ",tipo='"+ getTipo()+'\''+
                 '}';
     }
 }

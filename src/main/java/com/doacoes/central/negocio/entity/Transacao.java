@@ -1,29 +1,18 @@
 package com.doacoes.central.negocio.entity;
 
-import com.doacoes.central.negocio.enums.TipoCausa;
-import jakarta.persistence.*;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 
 import java.util.Objects;
 
-
-@Entity
-public class Causa extends Transacao {
-
+@MappedSuperclass
+public abstract class Transacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String descricao;
-
-    public Causa() {
-    }
-
-    private TipoCausa tipo;
-
-
-    public TipoCausa getTipo() {return tipo;}
-
-    public void setTipo(TipoCausa tipo) { this.tipo = tipo; }
 
     public Long getId() {
         return id;
@@ -41,27 +30,16 @@ public class Causa extends Transacao {
         this.descricao = descricao;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Causa causa = (Causa) o;
-        return Objects.equals(id, causa.id) && Objects.equals(descricao, causa.descricao);
+        Transacao transacao = (Transacao) o;
+        return Objects.equals(id, transacao.id) && Objects.equals(descricao, transacao.descricao);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(id, descricao);
     }
-
-    @Override
-    public String toString() {
-        return "Causa{" +
-                "id=" + id +
-                ", descricao='" + descricao + '\'' +
-                ", tipo=" + tipo +
-                '}';
-    }
 }
-
