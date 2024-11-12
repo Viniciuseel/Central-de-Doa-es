@@ -2,10 +2,7 @@ package com.doacoes.central.negocio.entity;
 
 import com.doacoes.central.negocio.enums.TiposDoacao;
 import jakarta.persistence.*;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
-import java.util.Objects;
 
 
 @Entity
@@ -44,19 +41,7 @@ public class Doacao extends Transacao {
 
 
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        Doacao that = (Doacao) o;
-//        return Double.compare(valor, that.valor) == 0 && Objects.equals(id, that.id) && Objects.equals(descricao, that.descricao);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(id, doador, valor, descricao);
-//    }
-//
+
     @Override
     public String toString() {
         return "Doacao{" +
