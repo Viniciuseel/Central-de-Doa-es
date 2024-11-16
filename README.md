@@ -49,7 +49,6 @@ O objetivo deste projeto é criar uma plataforma que centraliza ONGs e institui�
    ```
     - **Descrição**: Define o endereço de email do usuário para associar aos seus commits.
 
-
 ### Backlog
    * [ ] Adicionar validacao para que nao sejam cadastradas causas em duplicatas
    * [ ] Criar endpoints para fazer doacoes para uma causa. ( Relacionamento muitos para um )
