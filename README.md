@@ -48,3 +48,14 @@ O objetivo deste projeto é criar uma plataforma que centraliza ONGs e institui�
    git config --global user.email "seu email"
    ```
     - **Descrição**: Define o endereço de email do usuário para associar aos seus commits.
+
+
+### Backlog
+   * [ ] Adicionar validacao para que nao sejam cadastradas causas em duplicatas
+   * [ ] Criar endpoints para fazer doacoes para uma causa. ( Relacionamento muitos para um )
+   * [ ] Criar endpoints adicionar voluntarios para uma causa. ( Relacionamento muitos para muitos )
+   * [ ] Criar endpoints para listar todas doacoes para uma causa.
+   * [ ] Criar endpoints para pesquisar causa por nome ou parte do nome.
+   * [ ] Adicionar logo como imagem para uma causa
+   * [ ] Fazer o download de uma imagem da causa
+   * [ ] Adicionar endpoints para acessar a UI
